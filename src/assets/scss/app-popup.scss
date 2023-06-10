@@ -1,0 +1,75 @@
+.app-popup {
+    --popup-header-height: 100px;
+    position: fixed;
+    z-index: 10;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    padding: 100px 0;
+    color: var(--text-color);
+    background-color: var(--surface-color);
+    transform: translateX(120vw);
+    transition: transform 0.5s ease-in-out;
+
+    &.-show {
+        display: block;
+    }
+
+    &.-animate {
+        left: 0;
+        right: 0;
+        transform: translateX(0);
+    }
+
+    &__header {
+        flex-shrink: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    &__title {
+        display: inline-flex;
+        max-width: 70%;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 114px;
+        line-height: 1;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        text-transform: uppercase;
+    }
+
+    &__content {
+        flex-shrink: 1;
+        display: block;
+        padding-top: 80px;
+        max-height: calc(100vh - 200px - var(--popup-header-height));
+        overflow-y: auto;
+    }
+
+    @include media_breakpoint(tablet mobile) {
+        padding: 40px 0;
+
+        &__title {
+            max-width: 80%;
+            font-size: 66px;
+        }
+
+        &__content {
+            padding-top: 40px;
+            max-height: calc(100vh - 100px - var(--popup-header-height));
+        }
+    }
+
+    @include media_breakpoint(mobile) {
+        &__title {
+            font-size: 54px !important;
+        }
+    }
+    @include media_breakpoint(small-mobile) {
+        &__title {
+            font-size: 14vw !important;
+        }
+    }
+}

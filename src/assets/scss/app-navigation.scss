@@ -1,0 +1,45 @@
+.app-navigation {
+    display: flex;
+    align-items: flex-end;
+
+    .button {
+        margin: 0 15px;
+
+        &.-active {
+            color: var(--primary-color);
+            pointer-events: none;
+        }
+    }
+
+    @include media_breakpoint(tablet mobile) {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        min-width: 250px;
+        height: 100vh;
+        padding: 100px 40px 40px;
+        background-color: var(--surface-color);
+        pointer-events: none;
+        transform: translateX(120vw);
+        transition: transform 0.5s ease-in-out;
+
+        .button {
+            margin: 10px 0;
+            color: var(--text-color);
+        }
+
+        &.-show {
+            display: flex;
+        }
+
+        &.-open {
+            pointer-events: auto;
+            transform: translateX(0);
+        }
+    }
+
+    @include media_breakpoint(mobile) {
+
+    }
+}

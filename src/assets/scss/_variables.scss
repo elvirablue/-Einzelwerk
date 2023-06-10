@@ -1,0 +1,22 @@
+:root {
+	--surface-color: #F2E1C2;
+    --primary-color: #F23207;
+    --primary-darker-color: #D9310B;
+    --text-color: #262526;
+
+	--header-height: 40px;
+    --action-height: 40px;
+
+	--content-width: 1200px;
+	--main-padding: 120px;
+	--mobile-padding: 20px;
+	--inner-padding: 10px;
+	--root-radius: 4px;
+}
+
+
+$scroll-custom-size: 5px;
+$scroll-thumb-bg: var(--text-color);
+$scroll-thumb-hover-bg: var(--primary-color);
+$scroll-track-bg: var(--surface-color);
+$scroll-thumb-border: 0px solid var(--surface-color);

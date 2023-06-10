@@ -1,0 +1,57 @@
+body {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+* {
+	box-sizing: border-box;
+	line-height: 1.2;
+}
+
+img, svg {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+	fill: currentColor;
+}
+
+ul, ol {
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+	cursor: pointer;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	color: currentColor;
+	cursor: pointer;
+	background: none;
+	box-shadow: none;
+	border: none;
+	outline: none;
+}
+
+input, select, textarea {
+    padding: 0;
+    margin: 0;
+	background: none;
+	border: none;
+	outline: none;
+	color: currentColor;
+	caret-color: currentColor;
+	opacity: 1;
+
+	&::placeholder {
+		color: var(--text-color);
+	}
+}

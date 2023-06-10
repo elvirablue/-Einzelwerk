@@ -1,0 +1,64 @@
+.hamburger-menu {
+    $bar-width: 32px;
+    $bar-height: 2px;
+    $bar-spacing: 10px;
+    $bar-color: var(--surface-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $bar-width;
+    height: $bar-height + $bar-spacing*3;
+    cursor: pointer;
+
+    &__lines,
+    &__lines:after,
+    &__lines:before {
+        display: inline-flex;
+        width: $bar-width;
+        height: $bar-height;
+    }
+
+    &__lines {
+        position: relative;
+        background-color: $bar-color;
+        transition: all 0ms 300ms;
+    }
+
+    &__lines:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: $bar-spacing;
+        background-color: $bar-color;
+        transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    &__lines:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: $bar-spacing;
+        background: $bar-color;
+        transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    &.-open {
+        .hamburger-menu__lines {
+            background-color: rgba(255, 255, 255, 0);
+        }
+        .hamburger-menu__lines:after {
+            background-color: var(--text-color);
+            top: 0;
+            transform: rotate(45deg);
+            transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .hamburger-menu__lines:before {
+            background-color: var(--text-color);
+            bottom: 0;
+            transform: rotate(-45deg);
+            transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+    }
+}

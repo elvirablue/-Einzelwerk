@@ -1,0 +1,78 @@
+.app-header {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    width: 100%;
+    padding-top: 30px;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: var(--header-height);
+    }
+
+    &__logo {
+        flex-shrink: 0;
+        display: inline-flex;
+        width: auto;
+        height: 36px;
+        margin-right: auto;
+    }
+
+    &__actions {
+        flex-shrink: 0;
+        display: inline-flex;
+        padding-left: 25px;
+    }
+
+    &__toggle-navigation {
+        display: none;
+    }
+
+    &.-fixed {
+        position: fixed;
+        top: 0;
+    }
+
+    &.-absolute {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    @include media_breakpoint(tablet mobile) {
+        &__toggle-navigation {
+            position: relative;
+            z-index: 6;
+            flex-shrink: 0;
+            display: inline-flex;
+            padding-left: 25px;
+        }
+
+        &__navigation {
+            position: absolute;
+            z-index: 5;
+            top: 0;
+            right: 0;
+            pointer-events: none;
+        }
+
+        &__actions {
+            transform: translateX(0);
+            transition: transform 0.5s ease-in-out;
+
+            &.-move {
+                transform: translateX(-180px);
+            }
+
+        }
+    }
+
+    @include media_breakpoint(mobile) {
+        &__actions {
+            display: none;
+        }
+    }
+}
