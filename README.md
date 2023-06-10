@@ -14,5 +14,5 @@ gulp
 ```
 
 ### Для быстрого посмотра результата верстки:
-1. Скачать папку `build`
+1. Скачать папку `build` (https://download-directory.github.io/)
 2. Запустить файл `index.html`
