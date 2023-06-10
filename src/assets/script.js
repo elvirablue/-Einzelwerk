@@ -1,14 +1,16 @@
 
     function loaded() {
-        const elementSkyParallax = document.querySelector("#skyParallax");
-        let elementSmokeMove = document.querySelector("#smokeMove");
+        const elementSkyParallax = document.querySelector('#skyParallax');
+        let elementSmokeMove = document.querySelector('#smokeMove');
         elementSmokeMove.classList.add('-show');
         setTimeout(() => {
             let elementTitle = document.querySelector('#title');
             elementTitle.classList.add('-show');
         }, 750)
 
-        document.addEventListener("mousemove", parallax);
+        window.addEventListener('resize', closeNavigation)
+
+        document.addEventListener('mousemove', parallax);
         // Magic happens here
         function parallax(e) {
             let _w = window.innerWidth/2;
@@ -81,13 +83,13 @@
         elementHamburger.classList.add('-open');
         document.body.classList.add('--hidden');
 
-        const elementNavigation = document.querySelector("#navigation");
+        const elementNavigation = document.querySelector('#navigation');
         elementNavigation.classList.add('-show');
         setTimeout(() => {
             elementNavigation.classList.add('-open');
         }, 20)
 
-        const elementHeaderActions = document.querySelector("#headerActions");
+        const elementHeaderActions = document.querySelector('#headerActions');
         elementHeaderActions.classList.add('-move');
     }
 
@@ -95,10 +97,10 @@
         const elementHamburger = document.body.querySelector('#hamburgerMenu');
         elementHamburger.classList.remove('-open');
 
-        const elementHeaderActions = document.querySelector("#headerActions");
+        const elementHeaderActions = document.querySelector('#headerActions');
         elementHeaderActions.classList.remove('-move');
 
-        const elementNavigation = document.querySelector("#navigation");
+        const elementNavigation = document.querySelector('#navigation');
         elementNavigation.classList.remove('-open');
         setTimeout(() => {
             elementNavigation.classList.remove('-show');
@@ -133,8 +135,8 @@
 
     function openPopup(clone) {
         document.body.classList.add('--hidden');
-        const elementPopup = document.querySelector("#popup");
-        const popupContent = document.querySelector("#popupContent");
+        const elementPopup = document.querySelector('#popup');
+        const popupContent = document.querySelector('#popupContent');
         const headerPopup = elementPopup.querySelector('.app-popup__header')
         popupContent.appendChild(clone);
         elementPopup.style.setProperty('--popup-header-height', (headerPopup?.clientHeight ?? 0).toString() + 'px');
@@ -146,7 +148,7 @@
 
     function submitFormBuyTicket(event) {
         event.preventDefault();
-        const popupContent = document.querySelector("#popupContent");
+        const popupContent = document.querySelector('#popupContent');
         const form = popupContent.querySelector('.form');
         form.classList.add('-hide');
         setTimeout(() => {
@@ -156,14 +158,14 @@
     }
 
     function closePopup() {
-        const elementPopup = document.querySelector("#popup");
+        const elementPopup = document.querySelector('#popup');
         elementPopup.classList.remove('-animate');
         setTimeout(() => {
             elementPopup.classList.remove('-show');
             document.body.classList.remove('--hidden');
         }, 500)
         setTimeout(() => {
-            const popupContent = document.querySelector("#popupContent");
+            const popupContent = document.querySelector('#popupContent');
             popupContent.innerHTML = '';
         }, 800)
     }
