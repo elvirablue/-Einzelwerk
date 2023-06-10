@@ -1,12 +1,15 @@
 .index-title {
+    --text-height: 620px;
     position: relative;
     display: flex;
     flex-direction: column;
-    padding-left: 35px;
+    width: 100%;
+    height: var(--text-height);
+    overflow: hidden;
 
     &__line {
         position: absolute;
-        left: -3px;
+        left: 0;
         top: 0;
         display: flex;
         flex-direction: column;
@@ -40,7 +43,7 @@
 
     &__small-title {
         display: inline-flex;
-        padding-top: 10px;
+        padding: 10px 0 10px 35px;
         font-size: 36px;
         font-weight: 500;
         letter-spacing: 0.025em;
@@ -51,30 +54,30 @@
     }
 
     &__big-title {
-        --text-height: 520px;
         position: relative;
         z-index: 3;
         display: inline-flex;
-        height: var(--text-height);
-        transform: translate(0, 40px);
-        mask-image: url("../img/text.svg");
-        mask-size: 100% var(--text-height);
-        mask-repeat: no-repeat;
-        mask-position: left top;
         opacity: 0;
         transition: opacity 0.35s ease-in-out 0.75s;
+        clip-path: url(#textMask);
+
+        svg {
+            width: 0;
+            height: 0;
+        }
 
         video, img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
+            object-position: center;
         }
     }
 
     &.-show {
         .index-title__line {
             .line {
-                height: 590px;
+                height: calc(var(--text-height) - 20px);
             }
             .circle:last-of-type {
                 opacity: 1;
@@ -90,35 +93,53 @@
     }
 
     @include media_breakpoint(tablet) {
-        &__big-title {
-            --text-height: 40vw;
-        }
+        --text-height: 400px;
+        width: 700px;
+        margin: 0 auto;
 
-        &.-show {
-            .index-title__line {
-                .line {
-                    height: calc(40vw + 70px);
-                }
+        &__big-title {
+            margin-left: 15px;
+
+            svg path {
+                transform: scale(0.58);
             }
         }
     }
 
     @include media_breakpoint(mobile) {
-        padding-left: 5vw;
+        --text-height: 200px;
+        width: 330px;
+        margin: 0 auto;
 
         &__small-title {
-            font-size: 5vw;
+            padding-left: 25px;
+            font-size: 20px;
         }
 
         &__big-title {
-            --text-height: 40vw;
+            margin-left: 15px;
+
+            svg path {
+                transform: scale(0.26);
+            }
+        }
+    }
+
+    @include media_breakpoint(small-mobile) {
+        --text-height: 180px;
+        width: 280px;
+        margin: 0 auto;
+
+        &__small-title {
+            padding-left: 15px;
+            font-size: 18px;
         }
 
-        &.-show {
-            .index-title__line {
-                .line {
-                    height: calc(45vw + 40px);
-                }
+        &__big-title {
+            margin-left: 10px;
+
+            svg path {
+                transform: scale(0.22);
             }
         }
     }
